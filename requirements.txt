@@ -1,4 +1,4 @@
-discord.py == 1.5.0
+discord.py == 1.6.0
 asyncio == 3.4.3
 python-dotenv == 0.14.0
 requests == 2.23.0
