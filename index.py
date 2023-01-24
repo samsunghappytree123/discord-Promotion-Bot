@@ -182,7 +182,7 @@ async def on_guild_join(guild):
     embed.add_field(name="서버 아이디", value=f"``{guild.id}``", inline=False)
     embed.add_field(name="서버 주인", value=f"``{guild.owner}``", inline=False)
     embed.add_field(name="서버 순인원수", value=f"``{len(list(filter(lambda x: not x.bot, guild.members)))}명``", inline=False)
-    embed.add_field(name="현재 접속한 서버 수", value=f"``{len(client.guilds)}개`", inline=False)
+    embed.add_field(name="현재 접속한 서버 수", value=f"``{len(client.guilds)}개``", inline=False)
     embed.set_footer(text=guild.name, icon_url=guild.icon_url)
     await client.get_channel(int(botlog)).send(embed=embed)
     if guild.me.guild_permissions >= discord.Permissions(permissions=8) == False:
@@ -207,7 +207,7 @@ async def on_guild_remove(guild):
     embed.add_field(name="서버 아이디", value=f"``{guild.id}``", inline=False)
     embed.add_field(name="서버 주인", value=f"``{guild.owner}``", inline=False)
     embed.add_field(name="서버 순인원수", value=f"``{len(list(filter(lambda x: not x.bot, guild.members)))}명``", inline=False)
-    embed.add_field(name="현재 접속한 서버 수", value=f"``{len(client.guilds)}`개`", inline=False)
+    embed.add_field(name="현재 접속한 서버 수", value=f"``{len(client.guilds)}개``", inline=False)
     embed.set_footer(text=guild.name, icon_url=guild.icon_url)
     await client.get_channel(int(botlog)).send(embed=embed)
     target_category = get_category(guild)
