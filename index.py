@@ -22,29 +22,29 @@ def get_category(guild):
     members = len(list(filter(lambda x: not x.bot, guild.members)))
     target_category = None
     if members >= 1 and members <= 50:
-        target_category = client.get_channel(mydict['category']['1-50'])
+        target_category = client.get_channel(int(mydict['category']['1-50']))
     elif members >= 51 and members <= 100:
-        target_category = client.get_channel(mydict['category']['51-100'])
+        target_category = client.get_channel(int(mydict['category']['51-100']))
     elif members >= 101 and members <= 200:
-        target_category = client.get_channel(mydict['category']['101-200'])
+        target_category = client.get_channel(int(mydict['category']['101-200']))
     elif members >= 201 and members <= 300:
-        target_category = client.get_channel(mydict['category']['201-300'])
+        target_category = client.get_channel(int(mydict['category']['201-300']))
     elif members >= 301 and members <= 400:
-        target_category = client.get_channel(mydict['category']['301-400'])
+        target_category = client.get_channel(int(mydict['category']['301-400']))
     elif members >= 401 and members <= 500:
-        target_category = client.get_channel(mydict['category']['401-500'])
+        target_category = client.get_channel(int(mydict['category']['401-500']))
     elif members >= 501 and members <= 600:
-        target_category = client.get_channel(mydict['category']['501-600'])
+        target_category = client.get_channel(int(mydict['category']['501-600']))
     elif members >= 601 and members <= 700:
-        target_category = client.get_channel(mydict['category']['601-700'])
+        target_category = client.get_channel(int(mydict['category']['601-700']))
     elif members >= 701 and members <= 800:
-        target_category = client.get_channel(mydict['category']['701-800'])
+        target_category = client.get_channel(int(mydict['category']['701-800']))
     elif members >= 801 and members <= 900:
-        target_category = client.get_channel(mydict['category']['801-900'])
+        target_category = client.get_channel(int(mydict['category']['801-900']))
     elif members >= 901 and members <= 1000:
-        target_category = client.get_channel(mydict['category']['901-1000'])
+        target_category = client.get_channel(int(mydict['category']['901-1000']))
     elif members >= 1001:
-        target_category = client.get_channel(mydict['category']['1001-'])
+        target_category = client.get_channel(int(mydict['category']['1001-']))
     return target_category
 
 @client.event
