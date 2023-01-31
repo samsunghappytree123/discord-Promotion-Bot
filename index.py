@@ -99,7 +99,6 @@ async def synchronization():
         for i in client.get_channel(int(a)).channels:
             try:
                 guild = client.get_guild(int(i.topic.split(" ")[0]))
-                members = len(list(filter(lambda x: not x.bot,guild.members)))
                 try:
                     if not str(client.get_channel(int(i.topic.split(" ")[2]))) == "None":
                         try:
@@ -114,31 +113,7 @@ async def synchronization():
                                 embed=discord.Embed(timestamp=tg.edited_at, color=discord.Colour.green(), title=f"{client.user.name} 사용법", description=f"{client.user.mention}은 홍보를 할 수 있는 디스코드 봇입니다.\n\nSTEP 1. 봇을 초대합니다. [봇 초대링크](https://discord.com/oauth2/authorize?client_id={client.user.id}&permissions=8&scope=bot)\nSTEP 2. `{client.get_guild(int(mydict['bot']['guildid'])).name}`에 채널이 생성됩니다.\nSTEP 3. `{prefix}등록` 명령어로 서버 명령어를 등록합니다.")
                                 embed.set_footer(text="마지막 동기화")
                                 await tg.edit(content=mydict['bot']['guildlink'],embed=embed)
-                                if members >= 1 and members <= 50:
-                                    target_category = client.get_channel(mydict['category']['1-50'])
-                                elif members >= 51 and members <= 100:
-                                    target_category = client.get_channel(mydict['category']['51-100'])
-                                elif members >= 101 and members <= 200:
-                                    target_category = client.get_channel(mydict['category']['101-200'])
-                                elif members >= 201 and members <= 300:
-                                    target_category = client.get_channel(mydict['category']['201-300'])
-                                elif members >= 301 and members <= 400:
-                                    target_category = client.get_channel(mydict['category']['301-400'])
-                                elif members >= 401 and members <= 500:
-                                    target_category = client.get_channel(mydict['category']['401-500'])
-                                elif members >= 501 and members <= 600:
-                                    target_category = client.get_channel(mydict['category']['501-600'])
-                                elif members >= 601 and members <= 700:
-                                    target_category = client.get_channel(mydict['category']['601-700'])
-                                elif members >= 701 and members <= 800:
-                                    target_category = client.get_channel(mydict['category']['701-800'])
-                                elif members >= 801 and members <= 900:
-                                    target_category = client.get_channel(mydict['category']['801-900'])
-                                elif members >= 901 and members <= 1000:
-                                    target_category = client.get_channel(mydict['category']['901-1000'])
-                                elif members >= 1001:
-                                    target_category = client.get_channel(mydict['category']['1001-'])
-                                await i.edit(name=guild.name, category=target_category)
+                                await i.edit(name=guild.name, category=get_category(guild))
                                 number += 1
                                 ab.append(guild.id)
                         except: await client.get_channel(int(botlog)).send(embed=discord.Embed(title="동기화 오류 발생.", colour=discord.Colour.red(), description=f"{guild.name} / {guild.owner} / {guild.id}").set_footer(text=guild.name, icon_url=guild.icon_url))
